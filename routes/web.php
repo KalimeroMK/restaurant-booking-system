@@ -22,4 +22,7 @@ Route::group(['prefix' => 'admin'], function(){
     Route::get('login', 'SessionController@create')->name('login');
     Route::post('login', 'SessionController@store');
     Route::get('logout', 'SessionController@destroy')->name('destroy');
+    Route::resource('slide', 'SlidesController');
+    Route::resource('catagory', 'CatagoryController');
+    Route::resource('item', 'ItemController');
 });

@@ -12,32 +12,38 @@
 
 <div class="row">
     <div class="col-lg-12 col-md-12 col-sm-12">
-        <a href="{{ route('user.create') }}" class="btn btn-success">Add New User</a>
+        <a href="{{ route('item.create') }}" class="btn btn-success">Add New item</a>
         <div class="card">
             <div class="card-header" data-background-color="orange">
-                <h3>VIEW ALL USERS </h3>
+                <h3>VIEW ALL ITEM </h3>
             </div>
             <div class="card-content">
                <table id="table" class="table table-striped table-bordered" style="width:100%">
                  <thead>
                   <tr>
-                    <th><strong>ID</strong></th>
-                    <th><strong>NAME</strong></th>
-                    <th><strong>EMAIL</strong></th>
+                    <th><strong>SL</strong></th>
+                    <th><strong>TITLE</strong></th>
+                    <th><strong>SUB TITLE</strong></th>
+                    <th><strong>CATAGORY</strong></th>
+                    <th><strong>IMAGE</strong></th>
+                    <th><strong>PRICE</strong></th>
                     <th><strong>ACTION</strong></th>
                   </tr>
                 </thead>
-              @if(count($users))
+              @if(count($items))
                 <tbody>
-                  @foreach($users as $key=>$user)
+                  @foreach($items as $key=>$item)
                   <tr>
                     <td>{{ $key + 1 }}</td>
-                    <td>{{ $user->name }}</td>
-                    <td>{{ $user->email }}</td>
+                    <td>{{ $item->title }}</td>
+                    <td>{{ $item->sub_title }}</td>
+                    <td>{{ $item->catagory->name }}</td>
+                    <td><img src="/upload/items/{{$item->image}}" alt="item" style="max-width: 200px;"></td>
+                    <td>${{ $item->price }}</td>
                     <td>
-                        <a href="{{ route('user.edit', $user->id) }}" class="btn btn-warning edit-btn">EDIT</a>
+                        <a href="{{ route('item.edit', $item->id) }}" class="btn btn-warning edit-btn">EDIT</a>
 
-                        <form action="{{ route('user.destroy', $user->id)}}" class="delete-btn" method="POST">
+                        <form action="{{ route('item.destroy', $item->id)}}" class="delete-btn" method="POST">
                           @csrf
                           @method('DELETE')
                           <button type="submit" class="btn btn-danger">DELETE</button>

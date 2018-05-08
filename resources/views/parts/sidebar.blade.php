@@ -23,22 +23,22 @@ Tip 2: you can also add an image using data-image tag
                     <p>View Users</p>
                 </a>
             </li>
-            <li>
-                <a href="./table.html">
+            <li class="{{ Request::is('admin/slide')?'active':''}}">
+                <a href="{{ route('slide.index') }}">
                     <i class="material-icons">content_paste</i>
-                    <p>Table List</p>
+                    <p>Slides</p>
                 </a>
             </li>
-            <li>
-                <a href="./typography.html">
+            <li class="{{ Request::is('admin/catagory')?'active':''}}">
+                <a href="{{route('catagory.index') }}">
                     <i class="material-icons">library_books</i>
-                    <p>Typography</p>
+                    <p>Catagiries</p>
                 </a>
             </li>
-            <li>
-                <a href="./icons.html">
+            <li class="{{ Request::is('admin/item')?'active':'' }}">
+                <a href="{{ route('item.index') }}">
                     <i class="material-icons">bubble_chart</i>
-                    <p>Icons</p>
+                    <p>Items</p>
                 </a>
             </li>
             <li>
